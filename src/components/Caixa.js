@@ -33,13 +33,13 @@ const mapStateToProps = (state) => {
 
     console.log(state.pedidosCartao)
     state.pedidosCartao.forEach(element => {
-        CART += element.valor
+        CART += parseFloat(element.valor)
     });
     console.log(CART)
     
     console.log(state.pedidosCashback)
     state.pedidosCashback.forEach(element => {
-        CASH += element.valor
+        CASH += parseFloat(element.valor)
     });
     console.log(CASH)
 
