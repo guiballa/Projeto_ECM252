@@ -15,13 +15,14 @@ export const ACOES = {
 */
 export const pedirCartao = (cpf, nome, cartaoEscolhido) => {
     //substitua "null" pela sua solução
+    var dataAtual = new Date()
     return {
         type: ACOES.pedirCartao,
         payload: {
             cpf,
             nome,
             tipoTransacao: "Pedido de Cartão",
-            data: Date.now(),
+            data: dataAtual.toLocaleString(),
             valor: cartaoEscolhido === "gold" ? 50 : 100
         }
     }
@@ -38,13 +39,14 @@ export const pedirCartao = (cpf, nome, cartaoEscolhido) => {
 */
 export const pedirCashback = (cpf, valor) => {
     //substitua "null" pela sua solução
+    var dataAtual = new Date()
     return {
         type: ACOES.pedirCashback,
         payload: {
             cpf,
             valor,
             tipoTransacao: "Pedido de Cashback",
-            data: Date.now()
+            data: dataAtual.toLocaleString()
         }
     }
 }
