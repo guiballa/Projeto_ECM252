@@ -2,9 +2,12 @@ import React, { useState }from 'react'
 import { Card } from 'primereact/card'
 import { Button } from 'primereact/button'
 import { RadioButton } from 'primereact/radiobutton'
-import { connect } from 'react-redux'
+import { connect, useDispatch } from 'react-redux'
 import { pedirCartao } from '../actions'
-const CashbackForm = (props) => {
+
+const CartaoCreditoForm = (props) => {
+
+    const dispatch = useDispatch()
     const [cpf, setCpf] = useState('')
     const [nome, setNome] = useState('')
     const [cartaoEscolhido, setCartoEscolhido] = useState('')
@@ -12,6 +15,10 @@ const CashbackForm = (props) => {
     const enviar = (e) => {
         e.preventDefault()
         //faça o dispatch de uma ação de pedido de cartão aqui
+        //pedirCartao.dispatch(cpf, nome, cartaoEscolhido)
+        dispatch(pedirCartao(cpf, nome, cartaoEscolhido))
+
+
     }
     return (
         <Card>
@@ -70,4 +77,4 @@ const CashbackForm = (props) => {
 
 //tudo ok por aqui, não precisa mexer
 const mapStateToProps= (state) => (state)
-export default connect(mapStateToProps, {pedirCartao})(CashbackForm)
+export default connect(mapStateToProps, {pedirCartao})(CartaoCreditoForm)

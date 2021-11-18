@@ -29,11 +29,19 @@ const mapStateToProps = (state) => {
     var CART = 0
     var CASH = 0
 
-    const reducer = (payload, payloadAtual) => payload.valor + payloadAtual.valor;
+    //const reducer = (payload, payloadAtual) => payload.valor + payloadAtual.valor;
 
-    CART = state.pedidosCartao.reduce(reducer)
-
-    CASH = state.pedidosCashback.reduce(reducer)
+    console.log(state.pedidosCartao)
+    state.pedidosCartao.forEach(element => {
+        CART += element.valor
+    });
+    console.log(CART)
+    
+    console.log(state.pedidosCashback)
+    state.pedidosCashback.forEach(element => {
+        CASH += element.valor
+    });
+    console.log(CASH)
 
     return {caixa: CART-CASH}
 

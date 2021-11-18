@@ -33,6 +33,6 @@ const pedidosCashbackReducer = (pedidosCashback = [], acao) => {
     Os nomes das chaves não devem incluir o sufixo "reducer"
 */
 export default combineReducers({
-    pedidosCartaoReducer: pedidosCartaoReducer,
-    pedidosCashbackReducer: pedidosCashbackReducer
+    pedidosCartao: pedidosCartaoReducer,
+    pedidosCashback: pedidosCashbackReducer
 })
