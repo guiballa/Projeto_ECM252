@@ -21,7 +21,7 @@ const pedidosCartaoReducer = (pedidosCartao = [], acao) => {
 */
 const pedidosCashbackReducer = (pedidosCashback = [], acao) => {
     //seu código aqui
-    if (acao.type === ACOES.pedirCartao){
+    if (acao.type === ACOES.pedirCashback){
         return ([...pedidosCashback, acao.payload])
     }
     return pedidosCashback
@@ -32,7 +32,4 @@ const pedidosCashbackReducer = (pedidosCashback = [], acao) => {
     e devolver um único objeto que os contém.
     Os nomes das chaves não devem incluir o sufixo "reducer"
 */
-export default combineReducers({
-    pedidosCartao: pedidosCartaoReducer,
-    pedidosCashback: pedidosCashbackReducer
-})
+export default combineReducers({pedidosCartao: pedidosCartaoReducer, pedidosCashback: pedidosCashbackReducer})
