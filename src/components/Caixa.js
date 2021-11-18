@@ -23,9 +23,19 @@ const Caixa = (props) => {
 
     Dica2: Você pode descobrir o nome da chave a ser utilizada aqui mesmo, neste arquivo.
 */
-const mapStateToProps = (state) => (
-    {
-        //seu código aqui
-    }
-)
+const mapStateToProps = (state) => {
+
+    //seu código aqui
+    var CART = 0
+    var CASH = 0
+
+    const reducer = (payload, payloadAtual) => payload.valor + payloadAtual.valor;
+
+    CART = state.pedidosCartao.reduce(reducer)
+
+    CASH = state.pedidosCashback.reduce(reducer)
+
+    return {caixa: CART-CASH}
+
+}
 export default connect(mapStateToProps)(Caixa)
