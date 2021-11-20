@@ -29,8 +29,8 @@ const mapStateToProps = (state) => {
     var CART = 0
     var CASH = 0
 
-    //const reducer = (payload, payloadAtual) => payload.valor + payloadAtual.valor;
-
+    //Função caixa antiga
+    /*
     console.log(state.pedidosCartao)
     state.pedidosCartao.forEach(element => {
         CART += parseFloat(element.valor)
@@ -42,6 +42,16 @@ const mapStateToProps = (state) => {
         CASH += parseFloat(element.valor)
     });
     console.log(CASH)
+
+    return {caixa: CART-CASH}
+    */
+
+    //Função caixa nova, utilizando o REDUCE
+    const somaTodos = (valorTotal, payloadCurr) => valorTotal + parseFloat(payloadCurr.valor);
+
+    CART = state.pedidosCartao.reduce(somaTodos, 0)
+
+    CASH = state.pedidosCashback.reduce(somaTodos, 0)
 
     return {caixa: CART-CASH}
 
